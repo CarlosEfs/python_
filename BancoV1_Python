@@ -1,0 +1,31 @@
+layout = str("""=========== BANCO CENTRAL DO BRASIL ===========
+
+            [0] DEPOSITAR:
+            [1] SACAR:
+            [2] EXTRATO:
+            [3] SAIR 
+-->""")
+saque = 0
+saldo = 0
+depositar = 0
+extrato = " "
+conta = 0
+
+while True:
+    menu = input(layout)
+    if menu == '0':
+        depositar = float(input("Qual valor deseja despositar:"))
+        conta += depositar
+    elif menu == "1":
+        saque = float(input("Qual valor você deseja sacar: "))
+        if saque > conta:
+            print("Você não tem esse valor para sacar. Tente um valor menor")
+        conta -= saque
+    elif menu == "2":
+        extrato = conta
+        print(f"Seu extrato bancário é de R${extrato:.2f}")
+    elif menu == "3":
+        break
+    else:
+        print("Opção inválida, tente somente uma das opções citadas ")
+
